@@ -35,26 +35,43 @@ class _RandomDiceState extends State<RandomDice> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/newbackground.png'),
+              fit: BoxFit.cover,
+            )
+          ),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-            children: [
-              Image.asset('images/diceeLogo.png'),
+              children: [
+                Image.asset('images/diceeLogo.png'),
 
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Image.asset(diceImages[leftDiceNumber]),
-                    Image.asset(diceImages[rightDiceNumber]),
-                  ]
-              ),
-              ElevatedButton(
-                onPressed: rollDice,
-                child: Text('Roll Dice'),
-              )
-
-            ]
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Image.asset(diceImages[leftDiceNumber]),
+                      Image.asset(diceImages[rightDiceNumber]),
+                    ]
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
+                    onPressed: (){
+                    setState(() {
+                      rollDice();
+                    });
+                    },
+                    child: Text('Roll Dice',
+                      style: TextStyle(fontSize: 32, color: Colors.white),
+                      )
+                )
+              ]
+          ),
         ),
       ),
     );
