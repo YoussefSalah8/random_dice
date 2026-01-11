@@ -59,7 +59,8 @@ class _RandomDiceState extends State<RandomDice> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    minimumSize: Size(120, 60),
+                    backgroundColor: Color(0xFF951F20),
                   ),
                     onPressed: (){
                     setState(() {
